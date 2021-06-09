@@ -14,4 +14,9 @@ footer{
     background-color: gray;
     text-align: center;
     margin-top: 1%;
+    height: 30px;
+}
+
+.btn{
+    width: 100%;
 }
