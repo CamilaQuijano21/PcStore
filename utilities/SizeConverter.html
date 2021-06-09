@@ -11,6 +11,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <!-- Utility SizeConverter JS -->
+    <script src="../Js/SizeConverter.js"></script>
     <title>PcStore</title>
 </head>
 <body>
@@ -56,13 +58,89 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="title">Conversor de tamaño</h1>
+                    <h1 class="title">Conversor de tamaños</h1>
                 </div>
             </div>
+            <form action="">
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-lg-5">
+                        <div class="mb-3">
+                            <label for="LstOrigin" class="form-label">Tamaño de datos origen</label>
+                            <select id="LstOrigin" class="form-select" aria-label="Default select example">
+                              <option selected disabled>Seleccione el tamaño de origen</option>
+                              <option value="1">byte</option>
+                              <option value="2">kilobyte</option>
+                              <option value="3">megabyte</option>
+                              <option value="4">gigabyte</option>
+                              <option value="5">terabyte</option>
+                            </select>
+                          </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col-sm-12 col-lg-5">
+                      <div class="mb-3">
+                          <label for="LstDestination" class="form-label">Tamaño de datos destino</label>
+                          <select id="LstDestination" class="form-select" aria-label="Default select example">
+                            <option selected disabled>Seleccione el tamaño de destino</option>
+                            <option value="1">byte</option>
+                            <option value="2">kilobyte</option>
+                            <option value="3">megabyte</option>
+                            <option value="4">gigabyte</option>
+                            <option value="5">terabyte</option>
+                          </select>
+                        </div>
+                  </div>
+              </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-lg-5">
+                        <div class="mb-3">
+                            <label for="txtValueToConvert" class="form-label">Valor a convertir</label>
+                            <input type="number" class="form-control" id="txtValueToConvert">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-lg-5 mb-3">
+                            <button id="btnCalculate" type="button" class="btn btn-primary">Calcular</button>
+                    </div>
+                </div>
+            </form>
+            <div class="row justify-content-center">
+              <div class="col-sm-12 col-lg-5">
+                  <div class="mb-3">
+                      <label for="txtResult" class="form-label">Resultado</label>
+                      <input type="text" class="form-control" id="txtResult" disabled>
+                  </div>
+              </div>
+          </div>
         </div>
     </main>
-    <footer>
+    <footer id="footerSize">
         <p>copyright &copy; 2021</p>
     </footer>
 </body>
 </html>
+
+<!-- Jquery Code -->
+<script>
+    $( document ).ready(function() {
+    });
+
+    $("#btnCalculate").click(function(){
+        var lstOrigin = $("#LstOrigin").val();
+        var lstDestination = $("#LstDestination").val();
+        var txtValueToConvert = $("#txtValueToConvert").val();
+
+        var result = Convert(lstOrigin, lstDestination, txtValueToConvert);
+
+        if(result == 0)
+        {
+          $("#txtResult").val("Los valores son iguales");
+        }
+        else{
+          $("#txtResult").val(result);
+        }
+        
+    });
+</script>
