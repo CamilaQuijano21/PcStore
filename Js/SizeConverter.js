@@ -1,8 +1,4 @@
 function Convert(origin , destination, valueToConvert) {
-    debugger;
-    if(origin == destination){
-        return 0;
-    }
     if(origin == 1 && destination == 2){
         return divide(valueToConvert);
     }
