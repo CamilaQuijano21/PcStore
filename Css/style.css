@@ -1,0 +1,17 @@
+.container{
+    margin-top: 1%;
+}
+
+img.logo{
+    height: 50px;
+}
+
+.title{
+    text-align: center;
+}
+
+footer{
+    background-color: gray;
+    text-align: center;
+    margin-top: 1%;
+}
